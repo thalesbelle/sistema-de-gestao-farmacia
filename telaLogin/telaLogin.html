@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>SG TOKEN</title>
-    <link rel="stylesheet" href="telaLogin.css">
-    <!-- Adicione os ícones Font Awesome se ainda não estiverem incluídos -->
+    <link rel="stylesheet" href="../telaLogin/telaLogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -25,7 +24,7 @@
                         <span class="button__text">ENTRAR</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
-                    <p id="error-message" style="color: red; display: none; margin-top: 10px; white-space: nowrap;"></p>
+                    <p id="error-message" style="color: tomato; display: none; margin-top: 10px; white-space: nowrap;"></p>
                 </form>
             </div>
             <div class="screen__background">
@@ -37,14 +36,12 @@
         </div>
     </div>
 
-    <!-- Pop-up de erro -->
     <div id="error-popup" class="error-popup">
         <div class="error-popup-content">
-            <p id="error-message" style="color: white;"></p>
-            <button id="close-popup" class="close-popup">Fechar</button>
+            <p id="popup-error-message" style="color: white;"></p>
         </div>
     </div>
 
-    <script src="farmacia.js"></script>
+    <script src="../telaLogin/telaLogin.js"></script>
 </body>
 </html>
