@@ -14,7 +14,7 @@ body {
     background-color: #5D54A4;
     color: white;
     padding: 10px 20px;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     width: 100vw;
@@ -22,9 +22,10 @@ body {
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    border-bottom: 2px solid #413a85 !important;
 }
 
-.usuario {
+#usuario {
     height: 1.5%;
     width: 1.5%;
     order: 2; 
@@ -34,4 +35,52 @@ body {
     font-size: 16px;
     order: 1; 
     text-shadow: 0px 0px 10px black;
+}
+
+.menu{
+    height: 100%;
+    width: 3%;
+    background-color: #5D54A4;
+    color: white;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    transition: all 0.6s ease-in-out;
+}
+
+.icones{
+    position: fixed;
+    height: 3%;
+}
+
+#iconeFarmacia {
+    position: fixed;
+    width: 1.5%;
+    height: 3%;
+    top: 1.5%;
+    left: 0.7%;
+}
+
+#iconeMenu{
+    width: 1.5%;
+    top: 7%;
+    left: 0.7%;
+}
+
+#iconeClientes {
+
+}
+
+#iconeEstoque {
+    
+}
+
+.expansaoMenu{
+    position: fixed;
+    width: 10%;
+    transition: all 0.6s ease-in-out;
 }
