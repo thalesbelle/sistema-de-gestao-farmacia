@@ -26,8 +26,8 @@ body {
 }
 
 #usuario {
-    height: 1.5%;
-    width: 1.5%;
+    height: 24px;
+    width: 24px;
     order: 2; 
 }
 
@@ -37,50 +37,61 @@ body {
     text-shadow: 0px 0px 10px black;
 }
 
-.menu{
+#logoFarmacia {
+    width: 1.2%;
+    position: relative;
+    top: 10%;
+    right: 0%;
+}
+
+.menu {
+    position: fixed;
     height: 100%;
     width: 3%;
     background-color: #5D54A4;
     color: white;
-    position: fixed;
-    top: 0;
     z-index: 999;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 5%;
     transition: all 0.6s ease-in-out;
+    padding-top: 60px;
+    padding-left: 0.5%;
 }
 
-.icones{
-    position: fixed;
-    height: 3%;
+.icones {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
-#iconeFarmacia {
-    position: fixed;
-    width: 1.5%;
-    height: 3%;
-    top: 1.5%;
-    left: 0.7%;
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: left;
+    position: relative;
 }
 
-#iconeMenu{
-    width: 1.5%;
-    top: 7%;
-    left: 0.7%;
+.menu-text {
+    display: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 5%;
+    font-family: 'Segoe UI';
 }
 
-#iconeClientes {
-
-}
-
-#iconeEstoque {
-    
-}
-
-.expansaoMenu{
-    position: fixed;
+.expansaoMenu {
     width: 10%;
-    transition: all 0.6s ease-in-out;
+}
+
+.expansaoMenu .menu-item {
+    justify-content: flex-start;
+}
+
+.expansaoMenu .menu-text {
+    display: inline;
 }
