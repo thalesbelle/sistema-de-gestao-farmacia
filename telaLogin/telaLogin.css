@@ -187,11 +187,10 @@ body {
 
 .error-popup {
     display: none; 
-    position: fixed;
-    top: -40%;
-    left: 38%;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 5%;
+    left: 75%;
+    width: 30%;
     z-index: 1000;
     align-items: center;
     justify-content: center;
@@ -216,22 +215,6 @@ body {
 #popup-error-message {
     font-size: 18px;
     order: 2;
-}
-
-.close-popup {
-    position: relative;
-    right: -3%;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-    align-self: flex-end;
-    margin-bottom: -20px; 
-    margin-top: -20px;
-    order: 1;
 }
 
 .close-popup:hover {

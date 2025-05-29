@@ -31,7 +31,7 @@ function validarLogin(event) {
 
     if (nome === usuarioValido && senha === senhaValida) {
         errorPopup.style.display = "none";
-        window.location.href = "pagina-inicial.html";
+        window.location.href = "../pagina-inicial/geral.html";
     } else {
         setTimeout(function (){
             popupErrorMessage.textContent = "Usuário ou senha inválidos.";
@@ -48,10 +48,3 @@ function validarLogin(event) {
         }, 100);
     }
 }
-
-closePopupBtn.addEventListener('click', () => {
-    errorPopup.style.opacity = "0";
-    setTimeout(() => {
-        errorPopup.style.display = "none";
-    }, 300);
-});
