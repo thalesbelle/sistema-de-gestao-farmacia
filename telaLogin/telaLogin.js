@@ -1,11 +1,10 @@
 const errorPopup = document.getElementById("error-popup");
 const popupErrorMessage = document.getElementById("popup-error-message");
-const closePopupBtn = document.getElementById("close-popup");
 
 function validarLogin(event) {
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value;
+    const nome = document.getElementById("nome").value.toLowerCase();
     const senha = document.getElementById("senha").value;
 
     popupErrorMessage.textContent = "";
@@ -13,9 +12,12 @@ function validarLogin(event) {
     errorPopup.style.opacity = "0";
 
     if (!nome || !senha) {
-        setTimeout(function (){
+        setTimeout(function () {
             popupErrorMessage.textContent = "Por favor, preencha todos os campos.";
-            errorPopup.style.display = "flex"; 
+            errorPopup.style.display = "flex";
+            setTimeout(() => {
+                errorPopup.style.opacity = "1";
+            }, 100);
             setTimeout(() => {
                 errorPopup.style.opacity = "0";
                 setTimeout(() => {
@@ -26,14 +28,18 @@ function validarLogin(event) {
         return;
     }
 
-    const usuarioValido = "admigga";
-    const senhaValida = "1234";
+    const usuariosValidos = {
+        thales: { password: "1234", fullName: "Thales Bellé" },
+        aryel: { password: "1234", fullName: "Aryel Curi" }
+    };
 
-    if (nome === usuarioValido && senha === senhaValida) {
+    if (usuariosValidos[nome] && senha === usuariosValidos[nome].password) {
+        localStorage.setItem("loggedInUser", nome);
+        localStorage.setItem("fullName", usuariosValidos[nome].fullName);
         errorPopup.style.display = "none";
-        window.location.href = "../pagina-inicial/geral.html";
+        window.location.href = "../pagina-inicial/htmls/pagina-inicial.html";
     } else {
-        setTimeout(function (){
+        setTimeout(function () {
             popupErrorMessage.textContent = "Usuário ou senha inválidos.";
             errorPopup.style.display = "flex";
             setTimeout(() => {
