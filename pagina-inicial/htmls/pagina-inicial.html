@@ -7,9 +7,25 @@
     </head>
     <body>     
         <header class="cabecalho">
-            <img src="../images/ícone usuário.png" id="usuario" style="cursor: pointer;">
             <img src="../images/ícone da farmáciaaa.png" id="logoFarmacia" alt="ícone da farmácia">
-            <h3 class="saudacaoEmpresa"> Olá! Thales Bellé </h3>
+            <h3 class="saudacaoEmpresa">Olá! Thales Bellé</h3>
+            <div class="container-usuario">
+                <img src="../images/ícone usuário.png" id="usuario" style="cursor: pointer;">
+                <div id="menuUsuario" class="menu-usuario oculto">
+                    <ul>
+                        <li onclick="abrirPagina('configuracoes')">Configurações</li>
+                        <li onclick="mostrarPerfil()">Perfil</li>
+                        <li onclick="abrirPagina('ajuda')">Ajuda</li>
+                        <li onclick="confirmarSaida()">Sair da conta</li>
+                    </ul>
+                    <div id="perfilInfo" class="perfil-info oculto">
+                        <p><strong>Username:</strong> <span id="perfilUsername"></span></p>
+                        <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
+                        <p><strong>Senha:</strong> <span id="perfilSenha">****</span></p>
+                        <p><strong>Cargo:</strong> <span id="perfilCargo"></span></p>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <section class="menu">
@@ -33,6 +49,33 @@
                 <img src="../images/Seta de Menu.png" id="iconeMenu" class="icones">
             </div>
         </section>
+
+        <section id="dashboardGeral">
+            <h1 class="tituloPagina"> DASHBOARD</h1>
+            <div class="caixaInfo" id="clientesGeral" onclick="window.location.href='./clientes.html';">
+                <h1 style="font-family: 'Segoe UI'; font-weight: 500; font-size: 40px; margin-left: 5%; color: white;"> CLIENTES </h1>
+                <h1 style="font-family: 'Segoe UI'; font-weight: 400; font-weight: 30px; margin-left: 5%; color: white;"> CADASTRADOS </h1>
+            </div>
+            <div class="caixaInfo" id="estoqueGeral" onclick="window.location.href='./estoque.html';">
+                <h1 style="font-family: 'Segoe UI'; font-weight: 500; font-size: 40px; margin-left: 5%; color: white;"> ITENS </h1>
+                <h1 style="font-family: 'Segoe UI'; font-weight: 400; font-weight: 30px; margin-left: 5%; color: white;"> ESTOQUE </h1>
+            </div>
+            <div class="caixaInfo" id="vendasGeral" onclick="window.location.href='./vendas.html';">
+                <h1 style="font-family: 'Segoe UI'; font-weight: 500; font-size: 40px; margin-left: 5%; color: white;"> TOTAL </h1>
+                <h1 style="font-family: 'Segoe UI'; font-weight: 400; font-weight: 30px; margin-left: 5%; color: white;"> VENDAS </h1>
+            </div>
+        </section>
+
+        <div id="authDialog" class="auth-dialog oculto">
+            <div class="auth-dialog-content">
+                <p id="authMessage"></p>
+                <input type="text" id="authInput" class="auth-input" placeholder="Digite aqui">
+                <div class="auth-buttons">
+                    <button id="authSubmit">Confirmar</button>
+                    <button id="authCancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
 
         <script src="../geral.js"></script>
     </body>
