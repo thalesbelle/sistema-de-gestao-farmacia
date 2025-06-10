@@ -6,24 +6,23 @@
         <link rel="stylesheet" type="text/css" href="../geral.css">
     </head>
     <body>     
-    <header class="cabecalho">
-        <img src="../images/ícone da farmáciaaa.png" id="logoFarmacia" alt="ícone da farmácia">
-        <h3 class="saudacaoEmpresa">Olá! Thales Bellé</h3>
-        <div class="container-usuario">
-            <img src="../images/ícone usuário.png" id="usuario" style="cursor: pointer;">
-    
-            <div id="menuUsuario" class="menu-usuario oculto">
-                <ul>
-                    <li onclick="abrirPagina('configuracoes')">Configurações</li>
-                    <li onclick="abrirPagina('perfil')">Perfil</li>
-                    <li onclick="abrirPagina('ajuda')">Ajuda</li>
-                    <li onclick="confirmarSaida()">Sair da conta</li>
-                </ul>
-            </div>
+        <header class="cabecalho">
+            <img src="../images/ícone da farmáciaaa.png" id="logoFarmacia" alt="ícone da farmácia">
+            <h3 class="saudacaoEmpresa">Olá! Thales Bellé</h3>
+            <div class="container-usuario">
+                <img src="../images/ícone usuário.png" id="usuario" style="cursor: pointer;">
         
-        </div>
-    </header>
-
+                <div id="menuUsuario" class="menu-usuario oculto">
+                    <ul>
+                        <li onclick="abrirPagina('configuracoes')">Configurações</li>
+                        <li onclick="abrirPagina('perfil')">Perfil</li>
+                        <li onclick="abrirPagina('ajuda')">Ajuda</li>
+                        <li onclick="confirmarSaida()">Sair da conta</li>
+                    </ul>
+                </div>
+            
+            </div>
+        </header>
         <section class="menu">
             <div class="menu-item">
                 <img src="../images/Icone de Menu.png" onclick="window.location.href='./pagina-inicial.html';" id="iconeGeral" class="icones">
@@ -45,7 +44,26 @@
                 <img src="../images/Seta de Menu.png" id="iconeMenu" class="icones">
             </div>
         </section>
+        <section class="corpinho">
+            <div id="produtosCadastrados">
+                <h1> PRODUTOS </h1>
+                <h1> CADASTRADOS </h1>
+            </div>
+            <main>
+                <h1 class="tituloPagina">Estoque</h1>
+                <button id="btnAdicionarProduto">Adicionar Produto</button>
+                <form id="formProduto" class="forms">
+                    <input type="text" id="nomeProduto" placeholder="Nome do produto" required>
+                    <input type="number" step="0.01" min="0" id="valorProduto" placeholder="Valor do produto" required>
+                    <input type="number" id="codigoProduto" placeholder="Código do produto" required>
+                    <input type="tel" id="quantidadeProduto" placeholder="Quantidade" required>
+                    <button type="submit" id="btnSalvarProduto">Salvar Produto</button>
+                </form>
+                <div id="listaProdutos"></div>
+            </main>
+        </section>
 
         <script src="../geral.js"></script>
+        <script src="../js/estoque.js"></script>
     </body>
 </html>
