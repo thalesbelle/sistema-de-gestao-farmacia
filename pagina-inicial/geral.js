@@ -11,14 +11,12 @@ const perfilInfo = document.getElementById('perfilInfo');
 const perfilEmail = document.getElementById('perfilEmail');
 const perfilSenha = document.getElementById('perfilSenha');
 
-// Update greeting based on logged-in user
 const loggedInUser = localStorage.getItem('loggedInUser');
 const fullName = localStorage.getItem('fullName');
 if (fullName) {
     saudacaoEmpresa.textContent = `Olá! ${fullName}`;
 }
 
-// Profile data
 const userProfiles = {
     thales: {
         username: 'Thales Bellé',
@@ -29,18 +27,11 @@ const userProfiles = {
     aryel: {
         username: 'Aryel Curi',
         email: 'aryelcuri@gmail.com',
-        senha: '1234',
+        senha: '12345',
         cargo: 'Gerente'
     }
 };
 
-// Function to mask email
-function maskEmail(email) {
-    const [localPart, domain] = email.split('@');
-    return `${localPart[0]}*****@${domain}`;
-}
-
-// Icon page-based logic
 if (window.location.pathname.includes('pagina-inicial.html')) {
     iconeGeral.src = '../images/Icone de Menu.png'; 
 } else {
@@ -65,7 +56,6 @@ if (window.location.pathname.includes('vendas.html')) {
     iconeVendas.src = '../images/Icone de Venda.png'; 
 }
 
-// Icon hover effects
 iconeGeral.addEventListener('mouseenter', function() {
     iconeGeral.src = '../images/Icone de Menu.png';
 });
@@ -102,7 +92,6 @@ iconeVendas.addEventListener('mouseleave', function() {
     }
 });
 
-// Menu toggle
 expansaoMenu.addEventListener('click', function() {
     menu.classList.toggle('expansaoMenu');
     expansaoMenu.classList.toggle('icone-expandido');
@@ -114,60 +103,40 @@ expansaoMenu.addEventListener('click', function() {
     }
 });
 
-// User menu toggle
 usuarioIcone.addEventListener('click', (e) => {
     e.stopPropagation();
     menuUsuario.classList.toggle('oculto');
-    perfilInfo.classList.add('oculto'); // Hide profile on menu toggle
-    // Reset email and password display
+    perfilInfo.classList.add('oculto');
     if (loggedInUser && userProfiles[loggedInUser]) {
-        perfilEmail.textContent = maskEmail(userProfiles[loggedInUser].email);
+        perfilEmail.textContent = userProfiles[loggedInUser].email;
         perfilSenha.textContent = '****';
     }
 });
 
-// Close user menu on outside click
 document.addEventListener('click', (e) => {
     if (!menuUsuario.classList.contains('oculto') && !menuUsuario.contains(e.target) && e.target !== usuarioIcone) {
         menuUsuario.classList.add('oculto');
         perfilInfo.classList.add('oculto');
-        // Reset email and password display
         if (loggedInUser && userProfiles[loggedInUser]) {
-            perfilEmail.textContent = maskEmail(userProfiles[loggedInUser].email);
+            perfilEmail.textContent = userProfiles[loggedInUser].email;
             perfilSenha.textContent = '****';
         }
     }
 });
 
-// Show profile information
 function mostrarPerfil() {
     const user = userProfiles[loggedInUser];
     if (user) {
         document.getElementById('perfilUsername').textContent = user.username;
-        document.getElementById('perfilEmail').textContent = maskEmail(user.email);
+        document.getElementById('perfilEmail').textContent = user.email;
         document.getElementById('perfilCargo').textContent = user.cargo;
         perfilInfo.classList.toggle('oculto');
-        // Ensure menu stays open when showing profile
         menuUsuario.classList.remove('oculto');
     } else {
         alert('Nenhum usuário logado.');
     }
 }
 
-// Email click handler
-perfilEmail.addEventListener('click', () => {
-    const user = userProfiles[loggedInUser];
-    if (user) {
-        const input = prompt('Digite sua senha para ver o email:');
-        if (input === user.senha) {
-            perfilEmail.textContent = user.email;
-        } else {
-            alert('Senha incorreta.');
-        }
-    }
-});
-
-// Password click handler
 perfilSenha.addEventListener('click', () => {
     const user = userProfiles[loggedInUser];
     if (user) {
@@ -189,7 +158,12 @@ function confirmarSaida() {
     if (confirmacao) {
         localStorage.removeItem('loggedInUser');
         localStorage.removeItem('fullName');
-        alert("Logout executado (placeholder)");
+        alert("Logout executado!");
         window.location.href = '../../telaLogin/telaLogin.html';
     }
 }
+
+window.getSenhaUsuarioAtual = function() {
+    const user = userProfiles[localStorage.getItem('loggedInUser')];
+    return user ? user.senha : null;
+};

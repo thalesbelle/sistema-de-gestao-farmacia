@@ -11,6 +11,14 @@ body {
     background-color: #f5f5f5;
 }
 
+h1 {
+        
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    top: 2vh;
+}
 .cabecalho {
     background-color: #5D54A4;
     color: white;
@@ -19,6 +27,7 @@ body {
     top: 0;
     z-index: 1000;
     width: 100vw;
+    height: 5vh;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -51,7 +60,7 @@ body {
     font-size: 0.8vw;
     z-index: 1002;
     padding: 0.5vw 0;
-    width: 15vw; /* Increased to fit profile info */
+    width: 15vw;
 }
 
 .menu-usuario ul {
@@ -82,12 +91,12 @@ body {
     margin: 0.3vw 0;
 }
 
-#perfilEmail, #perfilSenha {
+#perfilSenha {
     cursor: pointer;
     text-decoration: underline;
 }
 
-#perfilEmail:hover, #perfilSenha:hover {
+#perfilSenha:hover {
     color: #413a85;
 }
 
@@ -213,7 +222,109 @@ body {
     position: absolute;
     font-family: 'Segoe UI';
     font-size: 50px;
-    color: gray;
+    color: rgb(163, 115, 185);
     left: 43.3%;
     top: 8%;
+}
+
+.forms {
+    margin-top: 1vw;
+    background-color: #EEE8FF;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    display: none;
+    font-family: 'Segoe UI';
+}
+
+.forms input {
+    display: block;
+    margin-bottom: 0.8vw;
+    width: 100%;
+    padding: 0.5vw;
+    font-size: 0.9vw;
+}
+
+#listaClientes, #listaProdutos {
+    margin-top: 2vw;
+    font-family: 'Segoe UI';
+}
+
+#btnAdicionarCliente, #btnSalvarCliente, #btnAdicionarProduto, #btnSalvarProduto {
+    background-color: #5D54A4;
+    color: white;
+    border: none;
+    padding: 0.7vw 1.2vw;
+    font-size: 0.9vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    margin-top: 1vw;
+}
+
+#btnAdicionarCliente:hover, #btnSalvarCliente:hover, #btnAdicionarProduto:hover, #btnSalvarProduto:hover {
+    background-color: #413a85;
+}
+
+.oculto {
+    display: none !important;
+}
+
+#listaClientes table, #listaProdutos table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI';
+}
+
+#listaClientes th, #listaProdutos th, #listaClientes td, #listaProdutos td {
+    border: 1px solid #5D54A4;
+    padding: 0.8vw;
+    text-align: left;
+}
+
+#listaClientes th, #listaProdutos th {
+    background-color: #EEE8FF;
+    color: #5D54A4;
+}
+
+.btnExcluir {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2vw;
+    text-align: center;
+}
+
+.btnExcluir:hover {
+    color: darkred;
+}
+
+.corpinho{
+    padding-top: 15vh;
+    margin-left: 5vw;
+    height: 80%;
+}
+
+#produtosCadastrados{
+    width: 25%;
+    height: 12vh;
+    padding: 1vw;
+    background-color: #a57ac0;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 15px;
+    transition: transform 0.6s ease-in-out;
+    border: 1px solid #5D54A4;
+    margin-bottom: 5%;
+}
+
+#produtosCadastrados h1{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    font-size: 20px; 
+    color: white; 
+}
+
+#formProduto{
+    position: relative;
+    top: 50%;
 }
