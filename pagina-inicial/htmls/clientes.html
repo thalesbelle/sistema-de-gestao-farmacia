@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SG TOKEN - Clientes</title>
     <link rel="stylesheet" type="text/css" href="../geral.css">
+    <link rel="stylesheet" type="text/css" href="../css/clientes.css">
 </head>
 <body>
     <header class="cabecalho">
@@ -13,7 +14,6 @@
             <img src="../images/ícone usuário.png" id="usuario" style="cursor: pointer;">
             <div id="menuUsuario" class="menu-usuario oculto">
                 <ul>
-                    <li onclick="abrirPagina('configuracoes')">Configurações</li>
                     <li onclick="mostrarPerfil()">Perfil</li>
                     <li onclick="abrirPagina('ajuda')">Ajuda</li>
                     <li onclick="confirmarSaida()">Sair da conta</li>
@@ -29,21 +29,29 @@
     </header>
 
     <section class="menu">
-        <div class="menu-item">
-            <img src="../images/Icone de Menu.png" onclick="window.location.href='./pagina-inicial.html';" id="iconeGeral" class="icones">
+        <div class="menu-item"  onclick="window.location.href='./pagina-inicial.html';">
+            <img src="../images/Icone de Menu.png" id="iconeGeral" class="icones">
             <span class="menu-text">GERAL</span>
         </div>
-        <div class="menu-item">
-            <img src="../images/Icone de Cliente Branco.png" onclick="window.location.href='./clientes.html';" id="iconeCliente" class="icones">
+        <div class="menu-item" onclick="window.location.href='./clientes.html';" >
+            <img src="../images/Icone de Cliente.png" id="iconeCliente" class="icones">
             <span class="menu-text">CLIENTES</span>
         </div>
-        <div class="menu-item">
-            <img src="../images/Icone de Estoque.png" onclick="window.location.href='./estoque.html';" id="iconeEstoque" class="icones">
+        <div class="menu-item"  onclick="window.location.href='./estoque.html';">
+            <img src="../images/Icone de Estoque.png" id="iconeEstoque" class="icones">
             <span class="menu-text">ESTOQUE</span>
         </div>
-        <div class="menu-item">
-            <img src="../images/Icone de Venda.png" onclick="window.location.href='./vendas.html';" id="iconeVendas" class="icones">
+        <div class="menu-item" onclick="window.location.href='./vendas.html';">
+            <img src="../images/Icone de Venda.png"  id="iconeVendas" class="icones">
             <span class="menu-text">VENDAS</span>
+        </div>
+        <div class="menu-item">
+            <label class="ui-switch" id="iconeModoEscuro">
+                <input type="checkbox">
+                <div class="slider">
+                <div class="circle"></div>
+                </div>
+            </label>     
         </div>
         <div class="menu-item">
             <img src="../images/Seta de Menu.png" id="iconeMenu" class="icones">
@@ -53,6 +61,12 @@
     <main style="margin-left: 5vw; padding: 6vw 2vw 2vw 2vw;">
         <h2 style="font-family: 'Segoe UI'; color: #5D54A4;">Cadastro de Clientes</h2>
         <button id="btnAdicionarCliente">Adicionar Cliente</button>
+
+        <div id="clientesCadastrados">
+            <h1 class="dashboardPrimeiro" id="clientes">CLIENTES</h1>
+            <h1 class="dashboardSegundo" id="cadastrados">CADASTRADOS</h1>
+            <h1 class="dashboardContador" id="contadorClientes">0</h1>
+        </div>
 
         <p>Clientes cadastrados:</p>
         <span id="contadorClientes" style="display: block; font-weight: bold; font-size: 1.2em;">0</span>

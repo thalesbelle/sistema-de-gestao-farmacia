@@ -1,0 +1,159 @@
+.forms {
+    margin-top: 1vw;
+    background-color: #EEE8FF;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    display: none;
+    font-family: 'Segoe UI';
+}   
+
+.forms.visivel {
+    display: block;
+}
+
+.forms input {
+    display: block;
+    margin-bottom: 0.8vw;
+    width: 100%;
+    padding: 0.5vw;
+    font-size: 0.9vw;
+}
+
+#listaClientes {
+    margin-top: 2vw;
+    font-family: 'Segoe UI';
+}
+
+#btnAdicionarCliente, #btnSalvarCliente {
+    background-color: #5D54A4;
+    color: white;
+    border: none;
+    padding: 0.7vw 1.2vw;
+    font-size: 0.9vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    margin-top: 1vw;
+}
+
+#btnAdicionarCliente:hover, #btnSalvarCliente:hover {
+    background-color: #413a85;
+}
+
+#listaClientes table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    border: 1px solid #5D54A4; 
+    border-radius: 10px; 
+    font-family: 'Segoe UI';
+    overflow: hidden; 
+}
+
+#listaClientes th, #listaClientes td {
+    border: 1px solid #5D54A4;
+    padding: 0.8vw;
+    text-align: left;
+}
+
+#listaClientes th:first-child,
+#listaClientes td:first-child {
+    border-left: 1px solid #5D54A4;
+}
+
+#listaClientes th:last-child,
+#listaClientes td:last-child {
+    border-right: 1px solid #5D54A4;
+}
+
+#listaClientes thead tr:first-child th:first-child {
+    border-top-left-radius: 10px; 
+}
+
+#listaClientes thead tr:first-child th:last-child {
+    border-top-right-radius: 10px; 
+}
+
+#listaClientes tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px; 
+}
+
+#listaClientes tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px; 
+}
+
+#listaClientes th {
+    background-color: #EEE8FF;
+    color: #5D54A4;
+}
+.btnExcluir {
+    background-color: transparent;
+    border: none;
+    color: rgb(179, 61, 173);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2vw;
+    text-align: center;
+}
+
+.btnExcluir:hover {
+    color: darkred;
+}
+
+.oculto {
+    display: none;
+}
+
+#clientesCadastrados {
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 40vh;
+    height: 10vh;
+    padding: 1vw;
+    background-color: #5D54A4;
+    margin-bottom: 5%;
+    border-bottom-right-radius: 1vh;
+}
+
+.dashboardPrimeiro{
+    font-family: 'Segoe UI'; 
+    font-weight: 500; 
+    font-size: 40px; 
+    margin-right: 45%; 
+    color: white; 
+    position: relative;
+}
+
+.dashboardSegundo{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    font-size: 30px; 
+    margin-right: 35%; 
+    color: white; 
+    position: relative;
+}
+
+.dashboardContador{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    color: white; 
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 4%;
+    font-size: 50px;
+}
+
+#clientes, #cadastrados{
+    position: relative;
+    top: -40%;
+}
+
+#contadorClientes{
+    position: relative;
+    top: -200%;
+}
+
+#tabelaClientesCadastrados{
+    position: relative;
+    top: 20%;
+}

@@ -9,10 +9,14 @@ function salvarProdutos(produtos) {
 
 function renderizarProdutos() {
     const lista = document.getElementById('listaProdutos');
+    const contadorProdutosSpan = document.getElementById('contadorProdutos');
     const produtos = obterProdutos();
 
     if (produtos.length === 0) {
         lista.innerHTML = '<p>Nenhum produto cadastrado.</p>';
+        if (contadorProdutosSpan) {
+            contadorProdutosSpan.textContent = '0';
+        }
         return;
     }
 
@@ -34,21 +38,23 @@ function renderizarProdutos() {
 
     produtos.forEach((produto, index) => {
         const tr = document.createElement('tr');
-
         tr.innerHTML = `
             <td>${produto.nome}</td>
             <td>${produto.valor}</td>
             <td>${produto.codigo}</td>
-            <td>${produto.telefone}</td>
-            <td><button class="btnExcluir" data-index="${index}" title="Excluir produto">&times;</button></td>
+            <td>${produto.quantidade}</td>
+            <td><button class="btnExcluir" data-index="${index}" title="Excluir produto">×</button></td>
         `;
-
         tbody.appendChild(tr);
     });
 
     table.appendChild(tbody);
     lista.innerHTML = '';
     lista.appendChild(table);
+
+    if (contadorProdutosSpan) {
+        contadorProdutosSpan.textContent = produtos.length;
+    }
 
     document.querySelectorAll('.btnExcluir').forEach(btn => {
         btn.addEventListener('click', (e) => {

@@ -1,4 +1,3 @@
-// Funções para acessar e salvar clientes no localStorage
 function obterClientes() {
     const data = localStorage.getItem('clientes');
     return data ? JSON.parse(data) : [];
@@ -8,7 +7,6 @@ function salvarClientes(clientes) {
     localStorage.setItem('clientes', JSON.stringify(clientes));
 }
 
-// Renderiza a lista de clientes na tabela e atualiza contador
 function renderizarClientes() {
     const lista = document.getElementById('listaClientes');
     const contadorClientesSpan = document.getElementById('contadorClientes');
@@ -20,10 +18,8 @@ function renderizarClientes() {
         return;
     }
 
-    // Criar tabela
     const table = document.createElement('table');
 
-    // Cabeçalho da tabela
     const thead = document.createElement('thead');
     thead.innerHTML = `
         <tr>
@@ -36,7 +32,6 @@ function renderizarClientes() {
     `;
     table.appendChild(thead);
 
-    // Corpo da tabela
     const tbody = document.createElement('tbody');
 
     clientes.forEach((cliente, index) => {
@@ -55,10 +50,8 @@ function renderizarClientes() {
     lista.innerHTML = '';
     lista.appendChild(table);
 
-    // Atualiza o contador de clientes
     contadorClientesSpan.textContent = clientes.length;
 
-    // Adiciona evento para os botões de excluir
     document.querySelectorAll('.btnExcluir').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const idx = e.target.getAttribute('data-index');
@@ -69,7 +62,6 @@ function renderizarClientes() {
     });
 }
 
-// Exclui um cliente pelo índice e atualiza a lista
 function excluirCliente(index) {
     const clientes = obterClientes();
     clientes.splice(index, 1);
@@ -77,13 +69,11 @@ function excluirCliente(index) {
     renderizarClientes();
 }
 
-// Mostra ou esconde o formulário de cadastro
 function toggleFormulario() {
     const form = document.getElementById('formCliente');
-    form.classList.toggle('oculto');
+    form.classList.toggle('visivel');
 }
 
-// Cadastra novo cliente, salva e atualiza a lista
 function cadastrarCliente(e) {
     e.preventDefault();
 
@@ -108,10 +98,23 @@ function cadastrarCliente(e) {
     renderizarClientes();
 }
 
-// Inicializa eventos após o carregamento da página
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('btnAdicionarCliente').addEventListener('click', toggleFormulario);
-    document.getElementById('formCliente').addEventListener('submit', cadastrarCliente);
 
-    renderizarClientes();
+    if (document.getElementById('formCliente')) {
+        document.getElementById('btnAdicionarCliente').addEventListener('click', toggleFormulario);
+        document.getElementById('formCliente').addEventListener('submit', cadastrarCliente);
+        renderizarClientes();
+    } else {
+
+        atualizarContadorClientesSimples();
+    }
 });
+
+
+function atualizarContadorClientesSimples() {
+    const span = document.getElementById('contadorClientes');
+    if (span) {
+        const clientes = obterClientes();
+        span.textContent = clientes.length;
+    }
+}

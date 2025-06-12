@@ -1,0 +1,106 @@
+#dashboardGeral {
+    display: flex;
+    justify-content: space-between;
+    padding: 5vw 10% 0 10%;
+    min-height: 100vh;
+    margin-left: 3vw;
+    
+}
+
+.caixaInfo {
+    position: relative;
+    width: 25%;
+    height: 15vh;
+    background-color: #a57ac0;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 15px;
+    top: 15vh;
+    transition: transform 0.6s ease-in-out;
+    border: 1px solid #5D54A4;
+    transform-origin: center;
+}
+
+.caixaInfo:hover {
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+.tituloPagina {
+    position: absolute;
+    font-family: 'Segoe UI';
+    font-size: 50px;
+    color: rgb(163, 115, 185);
+    left: 43.3%;
+    top: 8%;
+}
+
+.dashboardPrimeiro{
+    font-family: 'Segoe UI'; 
+    font-weight: 500; 
+    font-size: 40px; 
+    margin-right: 45%; 
+    color: white; 
+    position: relative;
+}
+
+.dashboardSegundo{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    font-size: 30px; 
+    margin-right: 35%; 
+    color: white; 
+    position: relative;
+}
+
+.dashboardContador{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    color: white; 
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 4%;
+    font-size: 50px;
+}
+
+#totalEscrita{
+    font-family: 'Segoe UI'; 
+    font-weight: 500; 
+    font-size: 40px; 
+    color: white; 
+    position: relative;
+    margin-right: 60%;
+}
+
+#vendasEscrita{
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    font-size: 30px; 
+    color: white; 
+    position: relative;
+    margin-right: 60%;
+}
+
+#contadorProdutos{
+    display: block;
+    font-family: 'Segoe UI'; 
+    font-weight: 400; 
+    color: white; 
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 4%;
+    font-size: 50px;
+}
+
+#contadorClientes{
+    position: relative;
+    top: -45%;
+}
+
+.produtosEscrita{
+    font-family: 'Segoe UI'; 
+    font-weight: 500; 
+    font-size: 40px; 
+    margin-right: 35%; 
+    color: white; 
+    position: relative;
+}
