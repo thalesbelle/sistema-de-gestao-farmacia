@@ -10,6 +10,7 @@ const menuUsuario = document.getElementById('menuUsuario');
 const perfilInfo = document.getElementById('perfilInfo');
 const perfilEmail = document.getElementById('perfilEmail');
 const perfilSenha = document.getElementById('perfilSenha');
+const iconeModoEscuro = document.getElementById('iconeModoEscuro')
 
 const loggedInUser = localStorage.getItem('loggedInUser');
 const fullName = localStorage.getItem('fullName');
@@ -136,18 +137,6 @@ function mostrarPerfil() {
         alert('Nenhum usuário logado.');
     }
 }
-
-perfilSenha.addEventListener('click', () => {
-    const user = userProfiles[loggedInUser];
-    if (user) {
-        const input = prompt('Digite seu email para ver a senha:');
-        if (input === user.email) {
-            perfilSenha.textContent = user.senha;
-        } else {
-            alert('Email incorreto.');
-        }
-    }
-});
 
 function abrirPagina(pagina) {
     alert(`Abrir página: ${pagina}`);

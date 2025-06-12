@@ -1,0 +1,16 @@
+.forms {
+    margin-top: 1vw;
+    background-color: #EEE8FF;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    display: none;
+    font-family: 'Segoe UI';
+}
+
+.forms input {
+    display: block;
+    margin-bottom: 0.8vw;
+    width: 100%;
+    padding: 0.5vw;
+    font-size: 0.9vw;
+}
