@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="../geral.css">
         <link rel="stylesheet" type="text/css" href="../css/vendas.css">
     </head>
+    
     <body>     
     <header class="cabecalho">
         <img src="../images/ícone da farmáciaaa.png" id="logoFarmacia" alt="ícone da farmácia">
@@ -16,7 +17,6 @@
             <div id="menuUsuario" class="menu-usuario oculto">
                 <ul>
                     <li onclick="abrirPagina('perfil')">Perfil</li>
-                    <li onclick="abrirPagina('ajuda')">Ajuda</li>
                     <li onclick="confirmarSaida()">Sair da conta</li>
                 </ul>
             </div>
@@ -56,7 +56,35 @@
         </div>
     </section>
 
+    
+    <h1 class="tituloPagina">Vendas</h1>
+    <main style="margin-left: 5vw; padding: 6vw 2vw 2vw 2vw;">
+        <button id="btnAdicionarVenda">Adicionar Venda</button>
+
+        <div id="vendasRealizadas">
+            <h1 class="dashboardPrimeiro">VENDAS</h1>
+            <h1 class="dashboardSegundo">REALIZADAS</h1>
+            <h1 class="dashboardContador" id="contadorVendas">0</h1>
+        </div>
+
+       <form id="formVenda" class="forms oculto">
+            <label for="selectProduto">Produto:</label>
+            <select id="selectProduto" required></select>
+
+            <label for="quantidadeVenda">Quantidade:</label>
+            <input type="number" id="quantidadeVenda" placeholder="Quantidade" required min="1">
+
+            <label for="selectCliente">Cliente:</label>
+            <select id="selectCliente" required></select>
+
+        <button type="submit" id="btnSalvarVenda">Salvar Venda</button>
+    </form>
+
+        <div id="listaVendas" style="margin-top: 30px;"></div>
+    </main>
+
         <script src="../geral.js"></script>
+        <script src="../js/estoque.js"></script>
         <script src="../js/vendas.js"></script>
     </body>
 </html>

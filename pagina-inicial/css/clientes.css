@@ -5,7 +5,7 @@
     border-radius: 0.5vw;
     display: none;
     font-family: 'Segoe UI';
-}   
+}
 
 .forms.visivel {
     display: block;
@@ -24,7 +24,18 @@
     font-family: 'Segoe UI';
 }
 
-#btnAdicionarCliente, #btnSalvarCliente {
+#btnAdicionarCliente {
+    background-color: #5D54A4;
+    color: white;
+    border: none;
+    padding: 0.7vw 1.2vw;
+    font-size: 0.9vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    margin-top: 11vw;
+}
+
+#btnSalvarCliente {
     background-color: #5D54A4;
     color: white;
     border: none;
@@ -40,13 +51,14 @@
 }
 
 #listaClientes table {
+    margin-top: 5.2vw;
     width: 100%;
-    border-collapse: separate; 
+    border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid #5D54A4; 
-    border-radius: 10px; 
+    border: 1px solid #5D54A4;
+    border-radius: 10px;
     font-family: 'Segoe UI';
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 #listaClientes th, #listaClientes td {
@@ -66,25 +78,26 @@
 }
 
 #listaClientes thead tr:first-child th:first-child {
-    border-top-left-radius: 10px; 
+    border-top-left-radius: 10px;
 }
 
 #listaClientes thead tr:first-child th:last-child {
-    border-top-right-radius: 10px; 
+    border-top-right-radius: 10px;
 }
 
 #listaClientes tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
 }
 
 #listaClientes tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
 }
 
 #listaClientes th {
     background-color: #EEE8FF;
     color: #5D54A4;
 }
+
 .btnExcluir {
     background-color: transparent;
     border: none;
@@ -115,45 +128,60 @@
     border-bottom-right-radius: 1vh;
 }
 
-.dashboardPrimeiro{
-    font-family: 'Segoe UI'; 
-    font-weight: 500; 
-    font-size: 40px; 
-    margin-right: 45%; 
-    color: white; 
+.dashboardPrimeiro {
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 40px;
+    margin-right: 45%;
+    color: white;
     position: relative;
 }
 
-.dashboardSegundo{
-    font-family: 'Segoe UI'; 
-    font-weight: 400; 
-    font-size: 30px; 
-    margin-right: 35%; 
-    color: white; 
+.dashboardSegundo {
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    font-size: 30px;
+    margin-right: 35%;
+    color: white;
     position: relative;
 }
 
-.dashboardContador{
-    font-family: 'Segoe UI'; 
-    font-weight: 400; 
-    color: white; 
+.dashboardContador {
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    color: white;
     position: absolute;
     margin-left: 80%;
     margin-top: 4%;
     font-size: 50px;
 }
 
-#clientes, #cadastrados{
+#clientes, #cadastrados {
     position: relative;
     top: -40%;
 }
 
-#contadorClientes{
+#contadorClientes {
     position: relative;
     top: -200%;
 }
 
-#tabelaClientesCadastrados{
+#tabelaClientesCadastrados {
     position: relative;
     top: 20%;
+}
+
+.bodyEscuro #listaClientes th {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+.bodyEscuro #listaClientes td {
+    color: #ffffff;
+}
+
+.bodyEscuro #listaClientes table,
+.bodyEscuro #listaClientes th,
+.bodyEscuro #listaClientes td {
+    border: 1px solid #2c3e50;
 }

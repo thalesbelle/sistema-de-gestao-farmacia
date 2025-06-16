@@ -11,16 +11,63 @@ body {
     background-color: #f5f5f5;
 }
 
+.bodyEscuro {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #1c2526; /* Fundo escuro */
+    color: #ffffff; /* Texto claro */
+}
+
+/* Ajustes para elementos no modo escuro, exceto cabeçalho e menu */
+.bodyEscuro .saudacaoEmpresa {
+    color: #ffffff;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .caixaInfo {
+    background-color: #34495e;
+    border: 1px solid #2c3e50;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .tituloPagina {
+    color: #ffffff;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .dashboardPrimeiro,
+.bodyEscuro .dashboardSegundo,
+.bodyEscuro .produtosEscrita,
+.bodyEscuro .dashboardContador,
+.bodyEscuro #totalEscrita,
+.bodyEscuro #vendasEscrita,
+.bodyEscuro #contadorProdutos {
+    color: #ffffff;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .menu-usuario {
+    background-color: #34495e;
+    border: 0.1vw solid #2c3e50;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .menu-usuario li,
+.bodyEscuro .perfil-info {
+    color: #ffffff;
+    transition: all 0.6s ease-in-out;
+}
+.bodyEscuro .menu-usuario li:hover {
+    background-color: #2c3e50;
+    transition: all 0.6s ease-in-out;
+}
+
 h1 {
-        
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 2vh;
 }
+
 .cabecalho {
-    background-color: #5D54A4;
+    background-color: #5D54A4; 
     color: white;
     padding: 0.52vw 1.04vw;
     position: fixed;
@@ -120,7 +167,7 @@ h1 {
     position: fixed;
     height: 100%;
     width: 3vw;
-    background-color: #5D54A4;
+    background-color: #5D54A4; /* Roxo mantido em ambos os modos */
     color: white;
     z-index: 999;
     display: flex;
@@ -227,13 +274,13 @@ h1 {
     top: 8%;
 }
 
-.corpinho{
+.corpinho {
     padding-top: 15vh;
     margin-left: 5vw;
     height: 80%;
 }
 
-#iconeModoEscuro{
+#iconeModoEscuro {
     position: fixed;
     bottom: 2%;
     cursor: pointer;
@@ -250,11 +297,13 @@ h1 {
     --circle-diameter: 32px;
     --circle-bg: rgb(0, 56, 146);
     --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
-  }
-  .ui-switch input {
+}
+
+.ui-switch input {
     display: none;
-  }
-  .slider {
+}
+
+.slider {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -264,8 +313,9 @@ h1 {
     border-radius: 999px;
     position: relative;
     cursor: pointer;
-  }
-  .slider .circle {
+}
+
+.slider .circle {
     top: calc(var(--circle-inset) * -1);
     left: 0;
     width: var(--circle-diameter);
@@ -289,9 +339,9 @@ h1 {
     -ms-flex-pack: center;
     justify-content: center;
     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    ;
-  }
-  .slider .circle::before {
+}
+
+.slider .circle::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -302,17 +352,18 @@ h1 {
     -o-transition: all 500ms;
     transition: all 500ms;
     opacity: 0;
-  }
-  .ui-switch input:checked+.slider .circle {
+}
+
+.ui-switch input:checked + .slider .circle {
     left: calc(100% - var(--circle-diameter));
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
-  }
-  
-  .ui-switch input:active+.slider .circle::before {
+}
+
+.ui-switch input:active + .slider .circle::before {
     -webkit-transition: 0s;
     -o-transition: 0s;
     transition: 0s;
     opacity: 1;
     width: 0;
     height: 0;
-  }
+}

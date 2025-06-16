@@ -5,9 +5,8 @@
     border-radius: 0.5vw;
     display: none;
     font-family: 'Segoe UI';
-    width: 30vw;
-    max-width: 400px;
-    box-sizing: border-box;
+    position: relative;
+    top: -30%;
 }
 
 .forms.visivel {
@@ -17,7 +16,7 @@
 .forms input {
     display: block;
     margin-bottom: 0.8vw;
-    width: 100%;
+    width: 95%;
     padding: 0.5vw;
     font-size: 0.9vw;
     box-sizing: border-box;
@@ -30,12 +29,12 @@
 
 #listaProdutos table {
     width: 100%;
-    border-collapse: separate; 
+    border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid #5D54A4; 
-    border-radius: 10px; 
+    border: 1px solid #5D54A4;
+    border-radius: 10px;
     font-family: 'Segoe UI';
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 #listaProdutos th, #listaProdutos td {
@@ -49,7 +48,20 @@
     color: #5D54A4;
 }
 
-#btnAdicionarProduto, #btnSalvarProduto {
+#btnAdicionarProduto {
+    background-color: #5D54A4;
+    color: white;
+    border: none;
+    padding: 0.7vw 1.2vw;
+    font-size: 0.9vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    margin-top: 1vw;
+    position: relative;
+    top: -30%;
+}
+
+#btnSalvarProduto {
     background-color: #5D54A4;
     color: white;
     border: none;
@@ -98,53 +110,68 @@
     color: darkred;
 }
 
-.oculto {
-    display: none !important;
+.oculta {
+    display: none;
 }
 
 main {
-    width: 100%; 
+    width: 100%;
     margin: 0 auto;
     padding: 2vw;
     box-sizing: border-box;
 }
 
-#tabelaAdicionarProdutos{
+#tabelaAdicionarProdutos {
     position: absolute;
     top: 40%;
     bottom: 20%;
 }
 
-.produtosEscrita{
-    font-family: 'Segoe UI'; 
-    font-weight: 500; 
-    font-size: 40px; 
-    margin-right: 35%; 
-    color: white; 
+.produtosEscrita {
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 40px;
+    margin-right: 35%;
+    color: white;
     position: relative;
 }
 
-#contadorProdutos{
+#contadorProdutos {
     display: block;
-    font-family: 'Segoe UI'; 
-    font-weight: 400; 
-    color: white; 
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    color: white;
     position: absolute;
     margin-left: 80%;
     top: 12%;
     font-size: 50px;
 }
 
-.dashboardSegundo{
-    font-family: 'Segoe UI'; 
-    font-weight: 400; 
-    font-size: 30px; 
-    margin-right: 35%; 
-    color: white; 
+.dashboardSegundo {
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    font-size: 30px;
+    margin-right: 35%;
+    color: white;
     position: relative;
 }
 
-#textoEstoqueProdutos{
+#textoEstoqueProdutos {
     position: relative;
     top: -45%;
+}
+
+.bodyEscuro #listaProdutos th {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+.bodyEscuro #listaProdutos td {
+    color: #ffffff;
+}
+
+.bodyEscuro #listaProdutos table,
+.bodyEscuro #listaProdutos th,
+.bodyEscuro #listaProdutos td {
+    border: 1px solid #2c3e50;
 }

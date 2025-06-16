@@ -10,7 +10,8 @@ const menuUsuario = document.getElementById('menuUsuario');
 const perfilInfo = document.getElementById('perfilInfo');
 const perfilEmail = document.getElementById('perfilEmail');
 const perfilSenha = document.getElementById('perfilSenha');
-const iconeModoEscuro = document.getElementById('iconeModoEscuro')
+const iconeModoEscuro = document.querySelector('#iconeModoEscuro input'); // Referência ao input
+const body = document.body;
 
 const loggedInUser = localStorage.getItem('loggedInUser');
 const fullName = localStorage.getItem('fullName');
@@ -34,27 +35,27 @@ const userProfiles = {
 };
 
 if (window.location.pathname.includes('pagina-inicial.html')) {
-    iconeGeral.src = '../images/Icone de Menu.png'; 
+    iconeGeral.src = '../images/Icone de Menu.png';
 } else {
-    iconeGeral.src = '../images/Icone menu Oco.png'; 
+    iconeGeral.src = '../images/Icone menu Oco.png';
 }
 
 if (window.location.pathname.includes('clientes.html')) {
-    iconeCliente.src = '../images/Icone de Cliente Branco.png'; 
+    iconeCliente.src = '../images/Icone de Cliente Branco.png';
 } else {
-    iconeCliente.src = '../images/Icone de Cliente.png'; 
+    iconeCliente.src = '../images/Icone de Cliente.png';
 }
 
 if (window.location.pathname.includes('estoque.html')) {
-    iconeEstoque.src = '../images/Icone de Estoque Branco.png'; 
+    iconeEstoque.src = '../images/Icone de Estoque Branco.png';
 } else {
-    iconeEstoque.src = '../images/Icone de Estoque.png'; 
+    iconeEstoque.src = '../images/Icone de Estoque.png';
 }
 
 if (window.location.pathname.includes('vendas.html')) {
-    iconeVendas.src = '../images/Icone de Venda Branco.png'; 
+    iconeVendas.src = '../images/Icone de Venda Branco.png';
 } else {
-    iconeVendas.src = '../images/Icone de Venda.png'; 
+    iconeVendas.src = '../images/Icone de Venda.png';
 }
 
 iconeGeral.addEventListener('mouseenter', function() {
@@ -98,9 +99,9 @@ expansaoMenu.addEventListener('click', function() {
     expansaoMenu.classList.toggle('icone-expandido');
     
     if (menu.classList.contains('expansaoMenu')) {
-        expansaoMenu.src = '../images/Seta de Menu Fechar.png'; 
+        expansaoMenu.src = '../images/Seta de Menu Fechar.png';
     } else {
-        expansaoMenu.src = '../images/Seta de Menu.png'; 
+        expansaoMenu.src = '../images/Seta de Menu.png';
     }
 });
 
@@ -156,3 +157,17 @@ window.getSenhaUsuarioAtual = function() {
     const user = userProfiles[localStorage.getItem('loggedInUser')];
     return user ? user.senha : null;
 };
+
+// Evento para o modo escuro
+iconeModoEscuro.addEventListener('change', (e) => {
+    body.classList.toggle('bodyEscuro');
+    localStorage.setItem('modoEscuro', body.classList.contains('bodyEscuro')); // Salvar estado
+});
+
+// Carregar estado do modo escuro
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('modoEscuro') === 'true') {
+        body.classList.add('bodyEscuro');
+        iconeModoEscuro.checked = true;
+    }
+});
