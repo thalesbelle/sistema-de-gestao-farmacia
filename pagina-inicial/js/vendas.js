@@ -1,143 +1,170 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const btnAdicionarVenda = document.getElementById('btnAdicionarVenda');
-    const forms = document.querySelector('.forms');
-    const btnSalvarVenda = document.getElementById('btnSalvarVenda');
-    const selectCliente = document.getElementById('selectCliente');
-    const selectProduto = document.getElementById('selectProduto');
-    const quantidadeVenda = document.getElementById('quantidadeVenda');
-    const valorTotalInput = document.getElementById('valorTotal');
-    const tbodyVendas = document.getElementById('tbodyVendas');
-    const contadorVendas = document.getElementById('contadorVendas');
+(() => {
 
-    let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-    let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-    let vendas = JSON.parse(localStorage.getItem('vendas')) || [];
+  // Variáveis - pegando elementos com os mesmos IDs
+  const btnAdicionarVendaVendas = document.getElementById('btnAdicionarVenda');
+  const formVendaVendas = document.getElementById('formVenda');
+  const selectProdutoVendas = document.getElementById('selectProduto');
+  const quantidadeVendaVendas = document.getElementById('quantidadeVenda');
+  const selectClienteVendas = document.getElementById('selectCliente');
+  const valorTotalInputVendas = document.getElementById('valorTotal');
+  const tbodyVendasVendas = document.getElementById('tbodyVendas');
+  const contadorVendasVendas = document.getElementById('contadorVendas');
 
-    contadorVendas.textContent = vendas.length;
+  let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+  let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+  let vendas = JSON.parse(localStorage.getItem('vendas')) || [];
 
-    function atualizarSelectClientes() {
-        selectCliente.innerHTML = '<option value="">Selecione um cliente</option>';
-        clientes.forEach(cliente => {
-            const option = document.createElement('option');
-            option.value = cliente.id;
-            option.textContent = cliente.nome;
-            selectCliente.appendChild(option);
-        });
-    }
+  function atualizarSelectProdutos() {
+      selectProdutoVendas.innerHTML = '<option value="">Selecione um produto</option>';
+      produtos.forEach(produto => {
+          if (produto.quantidade > 0) {
+              const option = document.createElement('option');
+              option.value = produto.id;
+              option.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)} (Estoque: ${produto.quantidade})`;
+              selectProdutoVendas.appendChild(option);
+          }
+      });
+  }
 
-    function atualizarSelectProdutos() {
-        selectProduto.innerHTML = '<option value="">Selecione um produto</option>';
-        produtos.forEach(produto => {
-            const option = document.createElement('option');
-            option.value = produto.id;
-            option.textContent = `${produto.nome} (R$${parseFloat(produto.preco).toFixed(2)})`;
-            option.dataset.preco = produto.preco;
-            selectProduto.appendChild(option);
-        });
-    }
+  function atualizarSelectClientes() {
+      selectClienteVendas.innerHTML = '<option value="">Selecione um cliente</option>';
+      clientes.forEach(cliente => {
+          const option = document.createElement('option');
+          option.value = cliente.id;
+          option.textContent = cliente.nome;
+          selectClienteVendas.appendChild(option);
+      });
+  }
 
-    function atualizarTabelaVendas() {
-        tbodyVendas.innerHTML = '';
-        vendas.forEach(venda => {
-            const cliente = clientes.find(c => c.id === venda.clienteId);
-            const produto = produtos.find(p => p.id === venda.produtoId);
-            const valorTotal = (venda.quantidade * (produto?.preco || 0)).toFixed(2);
+  function calcularValorTotal() {
+     console.log("Calculando valor total...");
+      const produtoId = parseInt(selectProdutoVendas.value);
+      const quantidade = parseInt(quantidadeVendaVendas.value);
 
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${venda.id}</td>
-                <td>${cliente?.nome || 'Desconhecido'}</td>
-                <td>${produto?.nome || 'Desconhecido'}</td>
-                <td>${venda.quantidade}</td>
-                <td>R$${valorTotal}</td>
-                <td>${venda.data}</td>
-                <td><button class="btnExcluir" data-id="${venda.id}">Excluir</button></td>
-            `;
-            tbodyVendas.appendChild(tr);
-        });
+      if (isNaN(produtoId) || isNaN(quantidade) || quantidade < 1) {
+          valorTotalInputVendas.value = '';
+          return;
+      }
 
-        document.querySelectorAll('.btnExcluir').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = parseInt(btn.dataset.id);
-                vendas = vendas.filter(v => v.id !== id);
-                localStorage.setItem('vendas', JSON.stringify(vendas));
-                contadorVendas.textContent = vendas.length;
-                atualizarTabelaVendas();
-            });
-        });
-    }
+      const produto = produtos.find(p => p.id === produtoId);
+      if (!produto) {
+          valorTotalInputVendas.value = '';
+          return;
+      }
 
-    btnAdicionarVenda.addEventListener('click', () => {
-        forms.classList.toggle('visivel');
-        if (forms.classList.contains('visivel')) {
-            atualizarSelectClientes();
-            atualizarSelectProdutos();
-        }
-    });
+      const valorTotal = produto.preco * quantidade;
+      valorTotalInputVendas.value = `R$ ${valorTotal.toFixed(2)}`;
+  }
 
-    selectProduto.addEventListener('change', () => {
-        calcularValorTotal();
-    });
+  function atualizarTabelaVendas() {
+      tbodyVendasVendas.innerHTML = '';
 
-    quantidadeVenda.addEventListener('input', () => {
-        calcularValorTotal();
-    });
+      vendas.forEach(venda => {
+          const cliente = clientes.find(c => c.id === venda.clienteId);
+          const produto = produtos.find(p => p.id === venda.produtoId);
 
-    function calcularValorTotal() {
-        const produtoId = parseInt(selectProduto.value);
-        const quantidade = parseInt(quantidadeVenda.value);
-        const produto = produtos.find(p => p.id === produtoId);
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+              <td>${venda.id}</td>
+              <td>${cliente ? cliente.nome : 'Cliente não encontrado'}</td>
+              <td>${produto ? produto.nome : 'Produto não encontrado'}</td>
+              <td>${venda.quantidade}</td>
+              <td>R$ ${(produto ? produto.preco * venda.quantidade : 0).toFixed(2)}</td>
+              <td>${venda.data}</td>
+              <td><button class="btnExcluir" data-id="${venda.id}">Excluir</button></td>
+          `;
+          tbodyVendasVendas.appendChild(tr);
+      });
 
-        if (produto && quantidade > 0) {
-            const valorTotal = quantidade * parseFloat(produto.preco);
-            valorTotalInput.value = `R$ ${valorTotal.toFixed(2)}`;
-        } else {
-            valorTotalInput.value = '';
-        }
-    }
+      contadorVendasVendas.textContent = vendas.length;
+  }
 
-    btnSalvarVenda.addEventListener('click', () => {
-        const clienteId = parseInt(selectCliente.value);
-        const produtoId = parseInt(selectProduto.value);
-        const quantidade = parseInt(quantidadeVenda.value);
+  function excluirVenda(id) {
+      const index = vendas.findIndex(v => v.id === id);
+      if (index !== -1) {
+          const venda = vendas[index];
+          const produto = produtos.find(p => p.id === venda.produtoId);
+          if (produto) {
+              produto.quantidade += venda.quantidade;
+          }
 
-        if (!clienteId || !produtoId || !quantidade || quantidade < 1) {
-            alert('Preencha todos os campos corretamente!');
-            return;
-        }
+          vendas.splice(index, 1);
+          localStorage.setItem('produtos', JSON.stringify(produtos));
+          localStorage.setItem('vendas', JSON.stringify(vendas));
 
-        const produto = produtos.find(p => p.id === produtoId);
-        if (quantidade > produto.quantidade) {
-            alert('Quantidade solicitada excede o estoque disponível!');
-            return;
-        }
+          atualizarTabelaVendas();
+          atualizarSelectProdutos();
+      }
+  }
 
-        const novaVenda = {
-            id: vendas.length > 0 ? Math.max(...vendas.map(v => v.id)) + 1 : 1,
-            clienteId,
-            produtoId,
-            quantidade,
-            data: new Date().toLocaleDateString('pt-BR')
-        };
+  btnAdicionarVendaVendas.addEventListener('click', () => {
+      formVendaVendas.classList.toggle('visivel');
+      if (formVendaVendas.classList.contains('visivel')) {
+          atualizarSelectProdutos();
+          atualizarSelectClientes();
+          formVendaVendas.reset();
+          valorTotalInputVendas.value = '';
+      }
+  });
 
-        produto.quantidade -= quantidade;
-        vendas.push(novaVenda);
+  selectProdutoVendas.addEventListener('change', calcularValorTotal);
+  quantidadeVendaVendas.addEventListener('input', calcularValorTotal);
 
-        localStorage.setItem('produtos', JSON.stringify(produtos));
-        localStorage.setItem('vendas', JSON.stringify(vendas));
+  formVendaVendas.addEventListener('submit', e => {
+      e.preventDefault();
 
-        contadorVendas.textContent = vendas.length;
+      const clienteId = parseInt(selectClienteVendas.value);
+      const produtoId = parseInt(selectProdutoVendas.value);
+      const quantidade = parseInt(quantidadeVendaVendas.value);
 
-        selectCliente.value = '';
-        selectProduto.value = '';
-        quantidadeVenda.value = '';
-        valorTotalInput.value = '';
-        forms.classList.remove('visivel');
+      if (isNaN(clienteId) || isNaN(produtoId) || isNaN(quantidade) || quantidade < 1) {
+          alert('Preencha todos os campos corretamente!');
+          return;
+      }
 
-        atualizarTabelaVendas();
-    });
+      const produto = produtos.find(p => p.id === produtoId);
+      if (!produto) {
+          alert('Produto não encontrado!');
+          return;
+      }
 
-    atualizarSelectClientes();
-    atualizarSelectProdutos();
-    atualizarTabelaVendas();
-});
+      if (quantidade > produto.quantidade) {
+          alert('Quantidade excede o estoque disponível!');
+          return;
+      }
+
+      const novaVenda = {
+          id: vendas.length > 0 ? Math.max(...vendas.map(v => v.id)) + 1 : 1,
+          clienteId,
+          produtoId,
+          quantidade,
+          data: new Date().toLocaleDateString('pt-BR')
+      };
+
+      produto.quantidade -= quantidade;
+      vendas.push(novaVenda);
+
+      localStorage.setItem('produtos', JSON.stringify(produtos));
+      localStorage.setItem('vendas', JSON.stringify(vendas));
+
+      formVendaVendas.classList.add('oculto');
+      formVendaVendas.reset();
+      valorTotalInputVendas.value = '';
+
+      atualizarTabelaVendas();
+      atualizarSelectProdutos();
+  });
+
+  tbodyVendasVendas.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btnExcluir')) {
+          const id = parseInt(e.target.dataset.id);
+          if (confirm('Deseja excluir esta venda?')) {
+              excluirVenda(id);
+          }
+      }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+      atualizarTabelaVendas();
+  });
+})();
