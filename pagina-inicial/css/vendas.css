@@ -57,6 +57,13 @@
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+.forms label {
+    display: block;
+    margin-top: 0.8vw;
+    font-size: 1vw;
+}
+
+
 #listaVendas {
     margin-top: 2vw;
     font-family: 'Segoe UI';
@@ -70,7 +77,7 @@
     font-size: 0.9vw;
     border-radius: 0.3vw;
     cursor: pointer;
-    margin-top: 5vw;
+    margin-top: 11vw;
 }
 
 #btnSalvarVenda{
@@ -152,44 +159,92 @@
     color: darkred;
 }
 
+/* Dashboard Vendas */
 #vendasRealizadas {
     position: absolute;
     top: 5%;
-    left: -1.5%;
-    width: 40vh;
-    height: 10vh;
+    left: 3%;
+    width: 60vh;
+    height: 20vh;
+    padding: 1vw 2vw;
     background-color: #5D54A4;
     border-bottom-right-radius: 1vh;
-    padding: 1vh 1vw;
+    
+    display: flex;
+    align-items: center;            /* centraliza verticalmente */
+    justify-content: space-between; /* espaça o texto e o contador */
     box-sizing: border-box;
+    color: white;
+    font-family: 'Segoe UI';
+}
+
+#vendasRealizadas h1 {
+    margin: 0;
+}
+
+.vendaTexts {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .dashboardPrimeiro {
-    font-family: 'Segoe UI';
     font-weight: 500;
-    font-size: 2.2vw;
-    color: white;
+    font-size: 40px;  /* igual ao produtos */
     margin: 0;
-    line-height: 1.2;
 }
 
+
 .dashboardSegundo {
-    font-family: 'Segoe UI';
     font-weight: 400;
-    font-size: 1.5vw;
-    color: white;
+    font-size: 30px;  /* igual ao produtos */
     margin: 0;
-    line-height: 1.2;
+    margin-top: 5px;
 }
 
 .dashboardContador {
-    position: absolute;
-    right: 10%;
-    top: 20%;
-    font-size: 2.5vw;
-    color: white;
-    font-family: 'Segoe UI';
+    font-weight: 400;
+    font-size: 50px;  /* igual ao produtos */
+    margin: 0;
+    white-space: nowrap;
+    position: static;  /* para respeitar o flexbox */
+    align-self: center;
+}
+
+/* Responsividade */
+@media (max-width: 1280px) {
+    #vendasRealizadas {
+        width: 50vh;      /* Igual ao clientes/produtos */
+        height: auto;     /* Igual ao clientes/produtos */
+        padding: 1vw 1.5vw;
+        flex-direction: row;  /* Para manter alinhamento lado a lado */
+        align-items: center;
+        justify-content: space-between;
+    }
+    .dashboardPrimeiro {
+        font-size: 40px;
+    }
+    .dashboardSegundo {
+        font-size: 30px;
+    }
+    .dashboardContador {
+        font-size: 50px;
+        margin-top: 0;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    #vendasRealizadas {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+    .dashboardContador {
+        align-self: flex-end;
+        margin-top: 1vw;
+        font-size: 35px;
+    }
 }

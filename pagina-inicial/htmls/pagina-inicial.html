@@ -57,23 +57,34 @@
             </div>
         </section>
 
-        <section id="dashboardGeral">
-            <h1 class="tituloPagina"> DASHBOARD</h1>
-            <div class="caixaInfo" id="clientesGeral" onclick="window.location.href='./clientes.html';">
-                <h1 class="dashboardPrimeiro"> CLIENTES </h1>
-                <h1 class="dashboardSegundo"> CADASTRADOS </h1>
-                <span id="contadorClientes" class="dashboardContador">0</span>
-            </div>
-            <div class="caixaInfo" id="produtosCadastrados" onclick="window.location.href='./estoque.html';">
-                <h1 class="produtosEscrita"> PRODUTOS </h1>
-                <h1 class="dashboardSegundo"> CADASTRADOS </h1>
-                <h1 id="contadorProdutos">0</h1>
-            </div>
-            <div class="caixaInfo" id="vendasGeral" onclick="window.location.href='./vendas.html';">
-                <h1 id="totalEscrita"> TOTAL </h1>
-                <h1 id="vendasEscrita"> VENDAS </h1>
-            </div>
-        </section>
+       <section id="dashboardGeral">
+  <h1 class="tituloPagina"> DASHBOARD</h1>
+
+  <div class="caixaInfo" id="clientesGeral" onclick="window.location.href='./clientes.html';">
+    <div class="info-texto">
+      <h1 class="dashboardPrimeiro">CLIENTES</h1>
+      <h1 class="dashboardSegundo">CADASTRADOS</h1>
+    </div>
+    <span id="contadorClientes" class="dashboardContador">0</span>
+  </div>
+
+  <div class="caixaInfo" id="produtosCadastrados" onclick="window.location.href='./estoque.html';">
+    <div class="info-texto">
+      <h1 class="dashboardPrimeiro">PRODUTOS</h1>
+      <h1 class="dashboardSegundo">CADASTRADOS</h1>
+    </div>
+    <span id="contadorProdutos" class="dashboardContador">0</span>
+  </div>
+
+  <div class="caixaInfo" id="vendasGeral" onclick="window.location.href='./vendas.html';">
+    <div class="info-texto">
+      <h1 class="dashboardPrimeiro">TOTAL</h1>
+      <h1 class="dashboardSegundo">VENDAS</h1>
+    </div>
+    <span id="contadorVendas" class="dashboardContador">0</span>
+  </div>
+</section>
+
 
         <div id="authDialog" class="auth-dialog oculto">
             <div class="auth-dialog-content">
@@ -89,5 +100,6 @@
         <script src="../geral.js"></script>
         <script src="../js/clientes.js"></script>
         <script src="../js/estoque.js"></script>
+        <script src="../js/vendas.js"></script>
     </body>
 </html>

@@ -171,3 +171,27 @@ document.addEventListener('DOMContentLoaded', () => {
         iconeModoEscuro.checked = true;
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Modo escuro
+    if (localStorage.getItem('modoEscuro') === 'true') {
+        body.classList.add('bodyEscuro');
+        iconeModoEscuro.checked = true;
+    }
+
+    // Contadores da dashboard (clientes, produtos, vendas)
+    if (window.location.pathname.includes('pagina-inicial.html')) {
+        const contadorClientes = document.getElementById('contadorClientes');
+        const contadorProdutos = document.getElementById('contadorProdutos');
+        const contadorVendas = document.getElementById('contadorVendas');
+
+        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+        const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+        const vendas = JSON.parse(localStorage.getItem('vendas')) || [];
+
+        if (contadorClientes) contadorClientes.textContent = clientes.length;
+        if (contadorProdutos) contadorProdutos.textContent = produtos.length;
+        if (contadorVendas) contadorVendas.textContent = vendas.length;
+    }
+});

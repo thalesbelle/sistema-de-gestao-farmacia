@@ -367,3 +367,124 @@ h1 {
     width: 0;
     height: 0;
 }
+
+.caixaInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 1.5vw; /* ajusta o afastamento da esquerda */
+}
+
+.dashboardPrimeiro,
+.dashboardSegundo,
+.produtosEscrita,
+#totalEscrita,
+#vendasEscrita,
+.dashboardContador,
+#contadorProdutos,
+#contadorClientes {
+  margin: 0;
+  position: static;
+  text-align: left;
+}
+
+@media (max-width: 1280px) and (max-height: 800px) {
+  .cabecalho {
+    height: 6vh;
+    padding: 0.6vw 1vw;
+  }
+
+  .menu {
+    width: 4vw;
+    padding-top: 4vw;
+  }
+
+  .icones {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  #iconeVendas {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .menu-text {
+    font-size: 1vw;
+  }
+
+  .expansaoMenu {
+    width: 12vw;
+  }
+
+  .menu-usuario {
+    font-size: 1vw;
+    width: 18vw;
+  }
+
+  .perfil-info {
+    font-size: 1vw;
+  }
+
+  .tituloPagina {
+    font-size: 50px;
+    left: 40%;
+  }
+
+  .caixaInfo {
+    width: 28%;
+    height: 20vh;
+    padding-left: 2vw;
+  }
+
+  .dashboardPrimeiro,
+  .dashboardSegundo,
+  .produtosEscrita,
+  #totalEscrita,
+  #vendasEscrita {
+    font-size: 24px;
+  }
+
+  .dashboardContador,
+  #contadorProdutos,
+  #contadorClientes {
+    font-size: 32px;
+    margin-left: auto;
+    align-self: flex-end;
+    padding-right: 1vw;
+  }
+
+  .saudacaoEmpresa {
+    font-size: 1vw;
+  }
+
+  .corpinho {
+    padding-top: 16vh;
+    margin-left: 4vw;
+  }
+
+  #iconeModoEscuro {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+
+  .slider {
+    width: 44px;
+    height: 18px;
+  }
+
+  .slider .circle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dashboardContador,
+  #contadorProdutos,
+  #contadorClientes {
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+    margin: 0;
+  }
+}

@@ -74,29 +74,30 @@ function toggleFormulario() {
     form.classList.toggle('visivel');
 }
 
-function cadastrarCliente(e) {
-    e.preventDefault();
+   function cadastrarCliente(e) {
+       e.preventDefault();
 
-    const nome = document.getElementById('nomeCliente').value.trim();
-    const email = document.getElementById('emailCliente').value.trim();
-    const telefone = document.getElementById('telefoneCliente').value.trim();
-    const idade = document.getElementById('idadeCliente').value.trim();
+       const nome = document.getElementById('nomeCliente').value.trim();
+       const email = document.getElementById('emailCliente').value.trim();
+       const telefone = document.getElementById('telefoneCliente').value.trim();
+       const idade = document.getElementById('idadeCliente').value.trim();
 
-    if (!nome || !email || !telefone || !idade) {
-        alert('Por favor, preencha todos os campos!');
-        return;
-    }
+       if (!nome || !email || !telefone || !idade) {
+           alert('Por favor, preencha todos os campos!');
+           return;
+       }
 
-    const novoCliente = { nome, email, telefone, idade };
-    const clientes = obterClientes();
-    clientes.push(novoCliente);
-    salvarClientes(clientes);
+       const clientes = obterClientes();
+       const novoCliente = { id: clientes.length + 1, nome, email, telefone, idade }; // Adicionando um ID
+       clientes.push(novoCliente);
+       salvarClientes(clientes);
 
-    document.getElementById('formCliente').reset();
-    document.getElementById('formCliente').classList.add('oculto');
+       document.getElementById('formCliente').reset();
+       document.getElementById('formCliente').classList.add('oculto');
 
-    renderizarClientes();
-}
+       renderizarClientes();
+   }
+   
 
 document.addEventListener('DOMContentLoaded', () => {
 
